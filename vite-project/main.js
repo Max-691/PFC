@@ -9,23 +9,55 @@ const leaf = document.querySelector('.leaf');
 const cisors = document.querySelector('.cisors');
 let userClick = null;
 
-rock.addEventListener('click', ()=>{
-  userClick = "rock";
+let timer = setInterval (() => {
+  if (timer >= 5) {
+    clearInterval(timer)
+  }
+  rock.addEventListener('click', ()=>{
+    userClick = "rock";
+  
+  })
+  leaf.addEventListener('click', ()=>{
+    userClick = "leaf";
+  
+  })
+  cisors.addEventListener('click', ()=>{
+    userClick = "cisors";
+  })
+  
+  // NEWER CODE
+  let aiClick = null;
+  for (const choose of choices) {
+    aiClick = Math.floor(Math.random(choose))
+    if (aiClick === userClick) {
+      alert('Match nul')
+    }
+    else if(aiClick === "rock" && userClick === "leaf" ||
+            aiClick === "leaf" && userClick === "cisors" ||
+            aiClick === "cisors" && userClick === "rock") {
+              alert('You won!')
+            }
+            else{
+              alert('You loose')
+            }
+  
+  
+  }
+  
+}, 100)
 
-})
-leaf.addEventListener('click', ()=>{
-  userClick = "leaf";
-
-})
-cisors.addEventListener('click', ()=>{
-  userClick = "cisors";
-})
 
 
-let aiClick = null;
+
+/* OLDER CODE
+for (const choose of choices) {
+  let aiClick = null;
 const min = 1;
 const max = 2;
 aiClick = Math.floor(Math.random(choices) * max);
+
+}
+
 
 //AI ROCK
 if (aiClick === 0 && userClick === "rock") {
@@ -67,6 +99,4 @@ if (aiClick === 2 && userClick === "leaf") {
 if (aiClick === 2 && userClick === "cisors") {
   alert("Match nul: Cisors vs Cisors")
 }
-
-console.log(aiClick);
-console.log("+ " + userClick)
+*/
