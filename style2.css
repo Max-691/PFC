@@ -1,0 +1,30 @@
+
+#container{
+    display: flex;
+    margin-top: 10%;
+    justify-content: space-around;
+    padding: 0 20rem;
+}
+
+#container div, #computer{
+    width: 5rem;
+    height: 5rem;
+    border: solid black 1px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+p{
+    font-size: xx-large;
+    text-align: center;
+}
+
+#computer{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
